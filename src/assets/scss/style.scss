@@ -5,13 +5,20 @@
 body {
     background-color: #edf0f1;
     padding: 50px 0 0 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    // font-family: 'Roboto', sans-serif;
     font-size: 16px;
     line-height: 1.429;
     color: black;
 }
 
-// .Toastify__progress-bar--bg Toastify__progress-bar-theme--color Toastify__progress-bar--default
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
 .Toastify__toast-theme--color {
     background-color: #4682b4;
 }

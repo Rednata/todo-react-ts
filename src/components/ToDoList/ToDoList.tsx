@@ -3,10 +3,11 @@ import  s from './ToDoList.module.scss'
 import { ToDo } from "../../models/todoItem"
 
 export const ToDoList = (props:
-  { todos: ToDo[]
+  { todos: ToDo[],
     updateToDo: Function,
     deleteToDo: Function,
-    notify: Function}) => {
+    notify: Function
+  }) => {
 
   const checkedList = () => {
     return props.todos
