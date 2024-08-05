@@ -3,8 +3,10 @@ import  s from './ToDoList.module.scss'
 import { ToDo } from "../../models/todoItem"
 
 export const ToDoList = (props:
-  { todos: ToDo[], updateToDo: Function, deleteToDo: Function}) => {
-  console.log('todos: ', props.todos);
+  { todos: ToDo[]
+    updateToDo: Function,
+    deleteToDo: Function,
+    notify: Function}) => {
 
   const checkedList = () => {
     return props.todos
@@ -14,6 +16,7 @@ export const ToDoList = (props:
         updateToDo={props.updateToDo}
         deleteToDo={props.deleteToDo}
         todoItem={todo}
+        notify={props.notify}
         key={idx}
       />
     })
@@ -27,6 +30,7 @@ export const ToDoList = (props:
         updateToDo={props.updateToDo}
         deleteToDo={props.deleteToDo}
         todoItem={todo}
+        notify={props.notify}
         key={idx}
       />
     })

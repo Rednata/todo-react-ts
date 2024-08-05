@@ -11,3 +11,14 @@ body {
     color: black;
 }
 
+// .Toastify__progress-bar--bg Toastify__progress-bar-theme--color Toastify__progress-bar--default
+.Toastify__toast-theme--color {
+    background-color: #4682b4;
+}
+
+.Toastify__progress-bar--wrp {
+    margin-bottom: 2px;
+}
+.Toastify__progress-bar-theme--color {
+    background-color: white;
+}

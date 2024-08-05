@@ -3,8 +3,17 @@ import { Form } from '../components/Form/Form'
 import { Header } from '../components/Header/Header'
 import { ToDoList } from '../components/ToDoList/ToDoList'
 import { ToDo } from '../models/todoItem';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const ToDoListPage = () => {
+  const notify = (text: string) => {
+    toast(text, {
+      position: 'bottom-right',
+      autoClose: 4000,
+      theme: "color",
+    })
+  };
 
   const [todos, setTodos] = useState<ToDo[]>([
     {
@@ -59,7 +68,11 @@ export const ToDoListPage = () => {
         todos={todos}
         updateToDo={updateToDo}
         deleteToDo={deleteToDo}
+        notify={notify}
       />
+      <div>
+        <ToastContainer />
+      </div>
     </>
   )
 }
