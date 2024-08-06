@@ -1,14 +1,19 @@
+import { useDispatch } from 'react-redux';
+import { createAction } from '../../feature/todoList';
 import s from './Form.module.scss'
 import { ChangeEvent, FormEvent, useState } from 'react'
 
 export const Form = (props: { createNewToDo: Function }) => {
+  const dispatch = useDispatch();
 
   const [text, setText] = useState<string>('');
   // let createText = ''
   const formSubmit = (e: FormEvent) => {
+    // e: React.SyntheticEvent
     e.preventDefault();
     if (text) {
       props.createNewToDo(text);
+      dispatch(createAction(text))
       setText('')
     }
   }

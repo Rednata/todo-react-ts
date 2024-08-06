@@ -1,5 +1,7 @@
+import { useDispatch } from 'react-redux';
 import { ToDo } from '../../../models/todoItem';
 import s from './ToDoListItem.module.scss'
+import { deleteAction, updateAction } from '../../../feature/todoList';
 
 export const ToDoListItem = (props:
   { todoItem: ToDo,
@@ -7,9 +9,12 @@ export const ToDoListItem = (props:
     deleteToDo: Function,
     notify: Function }) => {
 
+    const dispatch = useDispatch();
+
     const handleDeleteItem = () => {
-      props.updateToDo(props.todoItem)
+      // props.deleteToDo(props.todoItem)
       props.notify(`${props.todoItem.text}: удалено`)
+      dispatch(deleteAction(props.todoItem))
     }
 
     const handleUpdateItem = () => {
@@ -18,9 +23,9 @@ export const ToDoListItem = (props:
         // props.notify('Задача НЕ выполнена')
       } else {
         props.notify(`${props.todoItem.text}: выполнено`)
-        props.notify('Задача выполнена')
       }
-      props.updateToDo(props.todoItem)
+      // props.updateToDo(props.todoItem)
+      dispatch(updateAction(props.todoItem))
     }
 
   return (
