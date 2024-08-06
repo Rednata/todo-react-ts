@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { createAction } from '../../feature/todoList';
-import s from './Form.module.scss'
 import { ChangeEvent, FormEvent, useState } from 'react'
+import { FormControl, FormBlock, FormField, FormLabel, FormWrapper } from './Form.styled';
+import plusIcon from '../../assets/images/plus.png'
 
 export const Form = (props: { createNewToDo: Function }) => {
   const dispatch = useDispatch();
@@ -23,17 +24,19 @@ export const Form = (props: { createNewToDo: Function }) => {
   }
 
   return (
-    <div className={s.wrapper}>
-      <form action="#" onSubmit={formSubmit}>
-        <label>
-          <input type="text"
-            className={s.input}
+    <FormWrapper>
+      <FormBlock action="#" onSubmit={formSubmit}>
+        <FormLabel>
+          <FormField type="text"
+            // className={s.input}
             onChange={changeText}
             value={text}
             />
-          <button className={s.btn}></button>
-        </label>
-      </form>
-    </div>
+          <FormControl
+            icon={plusIcon}
+          ></FormControl>
+        </FormLabel>
+      </FormBlock>
+    </FormWrapper>
   )
 }

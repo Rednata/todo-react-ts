@@ -1,7 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { ToDo } from '../../../models/todoItem';
 import s from './ToDoListItem.module.scss'
+import checkIcon from '../../../assets/images/check.png';
+import trashIcon from '../../../assets/images/trash.png';
+import uncheckIcon from '../../../assets/images/uncheck.png';
 import { deleteAction, updateAction } from '../../../feature/todoList';
+import { ToDoItem, ToDoItemControl, ToDoItemControls, ToDoItemText } from './ToDoListItem.styled';
 
 export const ToDoListItem = (props:
   { todoItem: ToDo,
@@ -12,7 +16,6 @@ export const ToDoListItem = (props:
     const dispatch = useDispatch();
 
     const handleDeleteItem = () => {
-      // props.deleteToDo(props.todoItem)
       props.notify(`${props.todoItem.text}: удалено`)
       dispatch(deleteAction(props.todoItem))
     }
@@ -20,28 +23,28 @@ export const ToDoListItem = (props:
     const handleUpdateItem = () => {
       if (props.todoItem.isDone) {
         props.notify(`${props.todoItem.text}: НЕ выполнено`)
-        // props.notify('Задача НЕ выполнена')
       } else {
         props.notify(`${props.todoItem.text}: выполнено`)
       }
-      // props.updateToDo(props.todoItem)
       dispatch(updateAction(props.todoItem))
     }
 
   return (
-    <li className={s.wrapper}>
-      <span>{props.todoItem.text}</span>
-      <div className={s.buttons}>
-        <button
-          className={`${s.btn} ${s.btnTrash}`}
+    <ToDoItem>
+      <ToDoItemText>{props.todoItem.text}</ToDoItemText>
+      <ToDoItemControls >
+        <ToDoItemControl
+          className={`${s.btnTrash}`}
           onClick={handleDeleteItem}
-        ></button>
-        <button
-          className={`${s.btn} ${props.todoItem.isDone ? s.btnCheck : s.btnUncheck}`}
+          icon={trashIcon}
+        ></ToDoItemControl>
+        <ToDoItemControl
+        icon={`${props.todoItem.isDone ? checkIcon: uncheckIcon}`}
+          // className={`${props.todoItem.isDone ? s.btnCheck : s.btnUncheck}`}
           onClick={handleUpdateItem}
         >
-        </button>
-      </div>
-    </li>
+        </ToDoItemControl>
+      </ToDoItemControls>
+    </ToDoItem>
   )
 }

@@ -3,7 +3,6 @@ import todoReducer from './feature/todoList'
 import { loadFromLocalStorage, saveToLocalStorage } from './helpers/storage';
 
 const preloadedState = loadFromLocalStorage()
-console.log(' preloadedState: ',  preloadedState);
 
 export const store = configureStore({
   reducer: {
