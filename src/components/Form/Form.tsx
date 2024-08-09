@@ -8,7 +8,7 @@ export const Form = (props: { createNewToDo: Function }) => {
   const dispatch = useDispatch();
 
   const [text, setText] = useState<string>('');
-  // let createText = ''
+
   const formSubmit = (e: FormEvent) => {
     // e: React.SyntheticEvent
     e.preventDefault();

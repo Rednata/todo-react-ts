@@ -1,4 +1,3 @@
-import finalPropsSelectorFactory from "react-redux/es/connect/selectorFactory";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -14,6 +13,7 @@ export const HeaderBlock = styled.header`
 `
 
 export const HeaderContainer = styled.div`
+  position: relative;
   max-width: 97%;
   width: 100%;
   margin: 0 auto;
@@ -33,6 +33,16 @@ export const HeaderNavLink = styled(NavLink)`
     cursor: default;
   }
 `
-
+export const HeaderToggle = styled.div`
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+`
+export const HeaderButtonTheme = styled.button`
+  border-radius: 6px;
+  border: none;
+  padding: 3px 12px;
+`
 
 
